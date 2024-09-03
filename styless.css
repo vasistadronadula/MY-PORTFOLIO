@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+:root{
+    --max-width:1200px;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+html{
+
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+font-family:"Ubuntu", sans-serif;
+background-color: #000814;
+
+
+}
+
+.navbar{
+    z-index: 99;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display:inline-flex;
+    justify-content:space-around;
+    align-items: center;
+background-color: #000c1f;
+
+}
+.nav_content{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar h1{
+    font-weight: bold;
+    margin-left: 20px;
+    color: rgb(255, 255, 252);
+    margin: 15px 20px 10px 57px;
+    
+    
+}
+.navbar .checkbox{
+    display: none;
+}
+.navbar input{
+    display: none;
+}
+.navbar .checkbox i{
+    font:3rem;
+    cursor: pointer;
+    color: #f9f9f9;
+    font-size: 30px;
+}
+ul{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+    transition: left 0.3s;
+}
+ul li a {
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-weight: 600;
+    color:#3d88de;
+    transition: 0.3s;
+}
+ul li a:hover{
+    border-bottom: 2px solid rgb(255, 255, 255);
+    color: #fff;
+}
+.section_container{
+    min-height: 100vh;
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 3rem;
+}
+.subtitle{
+    letter-spacing: 2px;
+    font-size:30px;
+    font-weight: 600;
+    margin-bottom: .5rem;
+   
+}
+.title{
+    font-family:'cinzel' ;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+}
+.content  p{
+    color: #f9f9f9;
+    font-size: 19px;
+    text-align: center;
+}
+.content h1{
+ color: #3d88de;
+ font-weight: 600;
+ text-align: center;
+}
+.title span{
+    color: #ffea00;
+}
+.description{
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+}
+.ico{
+    display: inline-flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+.figure{
+    display: grid;
+    place-items:center;
+}
+.figure img{
+    width:min(25rem, 90%);
+    border: 3px solid rgba(0, 0, 0, 0.858);
+    border-radius: 100%;
+    animation: borderanimation 5s linear infinite;
+
+ }
+ .ico a i{
+   
+    font-size: 24px;
+    color: #f9f9f9;
+    border: 1px solid #f9f9f9;
+    border-radius: 50%;
+    padding: 7px;
+}
+.ico a i:hover{
+  color: #000000;
+  background-color:#3d88de;
+  transition: 0.2s;
+}
+
+
+.icc {
+    justify-content: center;
+    margin-top: 20px;
+    display: inline-flex; /* Ensure it wraps around the content */
+}
+
+.icc a {
+    text-decoration: none;
+    color: #f9f9f9;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 0.7px solid #f9f9f9;
+    border-radius: 20px;
+    padding-right:11px ; /* Better padding for a balanced button look */
+    display: inline-flex; /* Ensures the icon and text align properly */
+    align-items: center; /* Vertical alignment */
+    justify-content: center; /* Horizontal alignment */
+    transition: background-color 0.2s, color 0.2s; /* Smooth transition for both background and text color */
+}
+
+.icc a:hover {
+    color: #000000;
+    background-color:#3d88de;
+}
+
+.icc a i {
+    color: #f9f9f9;
+    font-size: 20px;
+    margin: 5px; /* Space between icon and text */
+    transition: color 0.2s;
+}
+
+.icc a:hover i {
+    color: #000000;
+}
+
+.section-2{
+
+        min-height: 100vh;
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 3rem;
+}
+.details h1{
+       color:#3d88de;
+       text-align: center;
+       justify-content: center;
+       padding-bottom: 20px;
+       
+}
+   .details
+   {
+    text-align: center;
+       justify-content: center;
+       display:flex;
+       flex-direction: column;
+   }
+   .details p{
+       line-height: 30px;
+       font-size: 17px;
+       color: #ffffff;
+   }
+   .figure1{
+    display: grid;
+    place-items:center;
+}
+.figure1 img{
+    width:min(25rem, 90%);
+    border: 3px solid rgba(0, 0, 0, 0.858);
+    border-radius: 100%;
+    animation: borderanimation 5s linear infinite;
+
+ }
+
+.services{
+    min-height:100vh;
+    max-width:var(--max-width);;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   align-items: center;
+    margin: auto;
+     padding: 1rem;
+}
+
+
+.contain{
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+    padding-bottom: 40px;
+  
+   
+}
+   .ser h1{
+       color: rgb(255, 255, 255);
+       text-align: center;
+       padding-top:90px;
+   }
+
+   .contain .web,.app,.design{
+       border: 1px solid black;
+       gap: 1rem;
+       background: rgba(239, 224, 224, 0.17);
+       text-align: center;
+       width:auto;
+       height:auto;
+   }
+   .contain .app:hover h1,.web:hover h1,.design:hover h1{
+    transition: 0.3s ease;
+    font-size:30px;
+}
+.contain .app:hover i,.web:hover i,.design:hover i{
+    transition: 0.3s ease;
+    font-size:40px;
+    color: red;
+}
+.contain .app:hover ,.web:hover ,.design:hover {
+   /* From https://css.glass */
+background: rgba(255, 255, 255, 0.09);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.1px);
+-webkit-backdrop-filter: blur(3.1px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+   transition: 0.3s ease;
+}
+
+
+   
+   .contain  h1{
+       color: #efeb1e;
+       margin: 10px;
+       text-align: center;
+   }
+   .contain  p{
+       color: #fff9fde5;
+       margin: 10px;
+       text-align: center;
+       line-height: 23px;
+      
+   }
+
+   .contain i{
+       font-size: 28px;
+      margin: 10px;
+      color:#3d88de;
+   }
+
+
+#contact{
+    display:flex;
+    height: 100vh;
+    max-width:100%;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+
+}
+.call{
+    height: auto;
+    width:fit-content;
+    
+}
+form{
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 13px;
+    backdrop-filter: blur(4px);
+    padding: 20px;
+    
+}
+
+.call  h2{
+    color: #fffdfd;
+    margin: 20px;
+    text-align: center;
+}
+.call form{
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
+
+form label{
+    float: left;
+    color: #fff;
+}
+ form input , form textarea{
+   border: 1px solid rgb(255, 236, 236);
+ outline: none;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 10px;
+    font-weight:600;
+    width: 400px;
+    background-color: rgba(41, 41, 41, 0.721);
+    backdrop-filter: blur(2px);
+    
+ }
+ button{
+    padding: 9px;
+    margin: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color:#3d88de;
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+ }
+ button:hover{
+    color:#3d88de;
+    background-color: #fff;
+ }
+
+
+
+
+ footer {
+    background-color: #131010;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    display: flexbox;
+
+
+  }
+  
+  .footer-container {
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+ 
+  }
+  
+  .footer-section {
+    margin: 10px;
+  }
+  
+  .footer-section a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 5px;
+    margin: 5px 0;
+    
+  }
+  
+  .footer-section a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+
+
+    
+  }
+@media  (width < 750px){
+    .navbar  .checkbox{
+        display : block;
+}
+ul{
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 85px);
+    left: -100%;
+    top: 85px;
+    background-color:#000814;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+.navbar #check:checked ~ ul{
+    left: 0;
+}
+ul li a{
+    font-size: 1.2rem;
+
+
+}
+.section_container{
+    padding: 10rem 1rem 5rem 1rem;
+    text-align: center;
+    grid-template-columns: repeat(1,1fr);
+}
+.figure{
+    grid-area: 1/1/2/2;
+}
+.section-2{
+    padding: 10rem 1rem 5rem 1rem;
+    text-align: center;
+    grid-template-columns: repeat(1,1fr);
+}
+.figure1{
+    display: none;
+}
+.contain{
+    padding: 10rem 1rem 5rem 1rem;
+    text-align: center;
+    grid-template-columns: repeat(1,1fr);
+
+}   
+form input, form textarea {
+    width: 100%;
+}
+.footer{
+    padding-bottom: 175px;
+}
+.footer-container {
+    flex-direction: column;
+
+}
+
+.footer-section {
+    margin: 10px 0;
+}
+
+#contact {
+    height: auto;
+}
+
+.call {
+    width: 100%;
+    padding: 0 20px;
+    padding-bottom: 20px;
+}
+
+form {
+    padding: 10px;
+}
+
+button {
+    width: 100%;
+}
+
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(255, 255, 255); 
+    border-radius: 5px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f9f9f9; 
+  }
+
+
+
+
+
+
