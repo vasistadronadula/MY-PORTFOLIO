@@ -484,9 +484,7 @@ ul li a{
 form input, form textarea {
     width: 100%;
 }
-.footer{
-    padding-bottom: 175px;
-}
+
 .footer-container {
     flex-direction: column;
 
