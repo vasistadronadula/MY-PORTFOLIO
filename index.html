@@ -17,16 +17,22 @@
   <header>
   <nav class="navbar">
     <h1>Portfolio.</h1>
-    <label for="check" class="checkbox">
-      <i class='bx bx-menu'></i>  
-    </label>
-    <input type="checkbox" name="check" id="check">
-    <ul >
+      <ul >
       <li><a href="#home">HOME</a></li>
       <li><a href="#about">ABOUT</a></li>
       <li><a href="#services">SERVICES</a></li>
       <li><a href="#contact">CONTACT</a></li>
     </ul>
+    <div class="ro">
+    <span style="font-size:25px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
   </nav>
 </header>
   <!--home section-->
@@ -35,7 +41,7 @@
     <div class="content">
       <p class="subtitle">HELLO</p>
       <h1 class="title"> I 'm <br><span>Vasishta Mahi Tej <br></span> A Web Developer</h1>
-      <p class="description">Full stack web developers have the ability to design complete web applications and websites. They work on the frontend, backend, database and debugging of web applications or websites. Full stack developers have a comprehensive understanding of the entire web application, from the front end to the back end.</p>
+      <p class="description">A web developer is a professional who specializes in creating and maintaining websites and web applications. They are responsible for the technical aspects of a website, ensuring it is functional, user-friendly, and visually appealing.</p>
    
 
     <div class="ico">
@@ -49,7 +55,7 @@
     </div>
   </div>
   <div class="figure">
-    <img src="r.jpg" alt="profile" >
+    <img src="t.jpg" alt="profile" >
   </div>
 </div>
   </section>
@@ -64,7 +70,7 @@
       <p>Hi there! I'm Vasishta Mahi tej, a 20-year-old web design enthusiast with a passion for creating visually appealing and user-friendly websites. I'm proficient in the core technologies that bring websites to life, including HTML5, CSS3, and JavaScript. To hone my skills, I've undertaken projects to create clones of popular websites like YouTube, Flipkart, and a food ordering platform. When I'm not designing, I enjoy unwinding with dance, movies, and music. Feel free to reach out to me at "vasistadronadula@gmail.com" to discuss your web design needs or simply connect!</p>
     </div>
     <div class="figure1">
-      <img src="r.jpg" alt="profile">
+      <img src="t.jpg" alt="profile">
     </div>
   </section>
 <!--services-->
@@ -132,4 +138,13 @@
       </div>
     </footer>
 </body>
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
 </html>

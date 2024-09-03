@@ -57,17 +57,9 @@ background-color: #000c1f;
     
     
 }
-.navbar .checkbox{
+
+.ro{
     display: none;
-}
-.navbar input{
-    display: none;
-}
-.navbar .checkbox i{
-    font:3rem;
-    cursor: pointer;
-    color: #f9f9f9;
-    font-size: 30px;
 }
 ul{
     display: flex;
@@ -131,7 +123,7 @@ ul li a:hover{
 .ico{
     display: inline-flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 3rem;
 }
 .content{
     display: flex;
@@ -292,7 +284,7 @@ ul li a:hover{
    /* From https://css.glass */
 background: rgba(255, 255, 255, 0.09);
 border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 30px #0acaff1a;
 backdrop-filter: blur(3.1px);
 -webkit-backdrop-filter: blur(3.1px);
 border: 1px solid rgba(255, 255, 255, 0.3);
@@ -437,28 +429,48 @@ form label{
     
   }
 @media  (width < 750px){
-    .navbar  .checkbox{
-        display : block;
+.navbar a{
+    display: none;
 }
-ul{
+.ro{
+    display: block;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color:#032551;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f9ed00;
+  }
+  
+  .sidenav .closebtn {
     position: absolute;
-    width: 100%;
-    height: calc(100vh - 85px);
-    left: -100%;
-    top: 85px;
-    background-color:#000814;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-}
-.navbar #check:checked ~ ul{
-    left: 0;
-}
-ul li a{
-    font-size: 1.2rem;
-
-
-}
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
 .section_container{
     padding: 10rem 1rem 5rem 1rem;
     text-align: center;
@@ -484,7 +496,6 @@ ul li a{
 form input, form textarea {
     width: 100%;
 }
-
 .footer-container {
     flex-direction: column;
 
@@ -499,9 +510,10 @@ form input, form textarea {
 }
 
 .call {
+  margin-top: 60px;
     width: 100%;
     padding: 0 20px;
-    padding-bottom: 20px;
+    padding-bottom:35px;
 }
 
 form {
@@ -511,6 +523,7 @@ form {
 button {
     width: 100%;
 }
+
 
 }
 
