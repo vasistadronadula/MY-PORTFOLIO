@@ -3,7 +3,7 @@
 A modern, responsive developer portfolio website showcasing my work as a **Full‑Stack & AI Developer**.  
 Built to highlight my projects, skills, and internship experience in a clean, minimal, and fast layout.
 
-> Live Demo: https://your-portfolio-url.com  
+> Live Demo: https://vasistadronadula.github.io/MY-PORTFOLIO/
 > GitHub Profile: https://github.com/vasistadronadula
 
 ---
@@ -61,3 +61,4 @@ cd your-portfolio-repo
 
 # open index.html in your browser
 # (double-click it or use Live Server in VS Code)
+
