@@ -3,156 +3,1343 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vasishta's Portfolio</title>
-  <link rel="icon" type="image/x-icon" href="ico.png">
-  <link rel="stylesheet" type="text/css" href="styless.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="script.js" defer></script>
+  <meta name="description" content="Vasishta Mahi Tej - Full-Stack Developer specializing in AI-powered web applications">
+  <title>Vasishta Mahi Tej | Full-Stack & AI Developer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="profile.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #ec4899;
+      --accent: #22d3ee;
+      --bg-dark: #0a0e27;
+      --bg-card: #1a1f3a;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #6366f1, transparent);
+      top: -200px;
+      right: -200px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #ec4899, transparent);
+      bottom: -150px;
+      left: -150px;
+      animation-delay: 5s;
+    }
+
+    .orb-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, #22d3ee, transparent);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(50px, -50px) scale(1.1); }
+      66% { transform: translate(-50px, 50px) scale(0.9); }
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 14, 39, 0.8);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 14, 39, 0.95);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::before,
+    .nav-links a.active::before {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      animation: slideInLeft 1s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.2;
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      background-size: 200% 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-content p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-out 0.6s both;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.6rem 1.2rem;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 50px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .hero-meta span i {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .hero-meta span:hover {
+      background: rgba(99, 102, 241, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      animation: fadeIn 1s ease-out 0.9s both;
+    }
+
+    .social-icons a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border-radius: 50%;
+      color: var(--text-primary);
+      font-size: 1.4rem;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      border: 2px solid rgba(99, 102, 241, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-icons a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+
+    .social-icons a:hover::before {
+      width: 200%;
+      height: 200%;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-8px) rotate(360deg);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-out 1.2s both;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.4s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.6s ease;
+    }
+
+    .btn:hover::before {
+      width: 300%;
+      height: 300%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+    }
+
+    .hero-image {
+      position: relative;
+      animation: slideInRight 1s ease-out;
+      display: flex;
+      justify-content: center;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    /* Glowing particles effect */
+    .image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      right: -30px;
+      bottom: -30px;
+      background: linear-gradient(45deg, 
+        var(--primary), 
+        var(--secondary), 
+        var(--accent), 
+        var(--primary));
+      background-size: 300% 300%;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(40px);
+      opacity: 0.6;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    /* Animated dots around image */
+    .image-wrapper::after {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      right: -40px;
+      bottom: -40px;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--primary) 2px, transparent 2px),
+        radial-gradient(circle at 80% 50%, var(--secondary) 2px, transparent 2px),
+        radial-gradient(circle at 50% 20%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 50% 80%, var(--primary) 2px, transparent 2px);
+      background-size: 100% 100%;
+      border-radius: 50%;
+      animation: pulse 4s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientMove {
+      0%, 100% { 
+        background-position: 0% 50%;
+        transform: rotate(0deg) scale(1);
+      }
+      50% { 
+        background-position: 100% 50%;
+        transform: rotate(180deg) scale(1.1);
+      }
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(99, 102, 241, 0.3),
+        inset 0 0 30px rgba(99, 102, 241, 0.1);
+      border: 6px solid rgba(26, 31, 58, 0.8);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 
+        0 40px 100px rgba(0, 0, 0, 0.8),
+        0 0 80px rgba(99, 102, 241, 0.5),
+        inset 0 0 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .hero-image .shape {
+      position: absolute;
+      z-index: 0;
+    }
+
+    .shape-1 {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      top: 10%;
+      right: -30px;
+      opacity: 0.6;
+      animation: float-shape 6s ease-in-out infinite;
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .shape-2 {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      border-radius: 50%;
+      bottom: 15%;
+      left: -20px;
+      opacity: 0.7;
+      animation: float-shape 8s ease-in-out infinite reverse;
+      box-shadow: 0 10px 30px rgba(34, 211, 238, 0.4);
+    }
+
+    .shape-3 {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      top: 40%;
+      right: -15px;
+      opacity: 0.5;
+      animation: float-shape 7s ease-in-out infinite;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+    }
+
+    @keyframes float-shape {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    /* Section Styles */
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .section-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .about-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-content p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      text-align: justify;
+      padding: 2rem;
+      background: rgba(99, 102, 241, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-content p::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+      transition: left 0.8s ease;
+    }
+
+    .about-content:hover p::before {
+      left: 100%;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 24px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(99, 102, 241, 0.3);
+      border-color: var(--primary);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      transition: all 0.5s ease;
+    }
+
+    .card:hover i {
+      transform: scale(1.2) rotate(360deg);
+      color: var(--secondary);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 650px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .contact-form.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .form-group {
+      margin-bottom: 1.8rem;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1.1rem;
+      background: var(--bg-card);
+      border: 2px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-card);
+      padding: 4rem 0 2rem;
+      margin-top: 6rem;
+      border-top: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.7rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--text-primary);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(99, 102, 241, 0.1);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: rgba(26, 31, 58, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 2000;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .close-btn:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+    }
+
+    .mobile-nav-links a {
+      display: block;
+      padding: 1.2rem 0;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--text-primary);
+      padding-left: 1rem;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero {
+        padding-top: 110px;
+      }
+
+      .hero-grid {
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 110px;
+        padding-bottom: 3rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+
+      .hero-image {
+        order: -1;
+        margin-bottom: 1rem;
+      }
+
+      .image-wrapper {
+        max-width: 280px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .social-icons,
+      .btn-group {
+        justify-content: center;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .section-header h2 {
+        font-size: 2.2rem;
+      }
+
+      .about-content p {
+        text-align: left;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-content {
+        padding: 1rem 1.2rem;
+      }
+
+      .container {
+        padding: 0 1.2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero-meta span {
+        font-size: 0.85rem;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 1.8rem;
+      }
+
+      .image-wrapper {
+        max-width: 240px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!--menu bar-->
-  <header>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- Navigation -->
   <nav class="navbar">
-    <h1>Portfolio.</h1>
-      <ul >
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#services">SERVICES</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-    <div class="ro">
-    <span style="font-size:25px;cursor:pointer;color:white;" onclick="openNav()">&#9776; </span>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-content">
+      <div class="logo">VMT.</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class='bx bx-menu'></i>
+      </button>
     </div>
-  </div>
   </nav>
-</header>
-  <!--home section-->
-  <section  class="section" id="home">
-    <div class="section_container">
-    <div class="content">
-      <p class="subtitle">HELLO</p>
-      <h1 class="title"> I 'm <br><span>Vasishta Mahi Tej <br></span> A Web Developer</h1>
-      <p class="description">A web developer is a professional who specializes in creating and maintaining websites and web applications. They are responsible for the technical aspects of a website, ensuring it is functional, user-friendly, and visually appealing.</p>
-   
 
-    <div class="ico">
-      <a href="https://github.com/vasistadronadula" target="_blank"><i class='bx bxl-github'></i></a>
-      <a href="https://x.com/vasishtatej" target="_blank"><i class='bx bxl-twitter'></i></a>
-      <a href="https://www.linkedin.com/in/vasishta-mahi-tej-140611290?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B8pro7iyuSjirQfKPUw5IlA%3D%3D" target="_blank"><i class='bx bxl-linkedin'></i></a>
-      <a href="mailto: vasistadronadula@gmail.com"><i class='bx bxl-gmail'></i></a>
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <div class="logo">VMT.</div>
+      <button class="close-btn" id="closeBtn" aria-label="Close menu">
+        <i class='bx bx-x'></i>
+      </button>
     </div>
-    <div class="icc">
-      <a href="resume.pdf" > <i class='bx bxs-download'></i> CV </a>
-    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
   </div>
-  <div class="figure">
-    <img src="profile.jpg" alt="profile" >
-  </div>
-</div>
-  </section>
 
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1>
+              Hi, I'm <br><span class="gradient-text">Vasishta Mahi Tej</span><br>
+              Full-Stack & AI Developer
+            </h1>
+            <p>Student developer specializing in full-stack web applications, backend APIs, and AI-powered features. Building reliable, scalable products that solve real-world problems.</p>
+            
+            <div class="hero-meta">
+              <span><i class='bx bx-map'></i> Vijayawada, India</span>
+              <span><i class='bx bx-briefcase'></i> Open to Opportunities</span>
+            </div>
 
+            <div class="social-icons">
+              <a href="https://github.com/vasistadronadula" target="_blank" aria-label="GitHub">
+                <i class='bx bxl-github'></i>
+              </a>
+              <a href="https://www.linkedin.com/in/vasishta-mahi-tej-140611290" target="_blank" aria-label="LinkedIn">
+                <i class='bx bxl-linkedin'></i>
+              </a>
+              <a href="mailto:vasistadronadula@gmail.com" aria-label="Email">
+                <i class='bx bx-envelope'></i>
+              </a>
+            </div>
 
-  <!--2nd page-->
-  <section class="section-2" id="about">
-      
-    <div class="details">
-      <h1>ABOUT ME</h1>
-      <p>Hi there! I'm Vasishta Mahi tej, a 20-year-old web design enthusiast with a passion for creating visually appealing and user-friendly websites. I'm proficient in the core technologies that bring websites to life, including HTML5, CSS3, and JavaScript. To hone my skills, I've undertaken projects to create clones of popular websites like YouTube, Flipkart, and a food ordering platform. When I'm not designing, I enjoy unwinding with dance, movies, and music. Feel free to reach out to me at "vasistadronadula@gmail.com" to discuss your web design needs or simply connect!</p>
-    </div>
-    <div class="figure1">
-      <img src="profile.jpg" alt="profile">
-    </div>
-  </section>
-<!--services-->
-  <section class="services" id="services">
-    <div class="ser">
-      <h1>SERVICES</h1>
-    </div>
+            <div class="btn-group">
+              <a href="resume.pdf" class="btn btn-primary" target="_blank">
+                <i class='bx bx-download'></i> Download Resume
+              </a>
+              <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+          </div>
 
-    <div class="contain">
-      <div  class="web">
-        <i class='bx bx-cog'></i>
-        <h1>WEB DEVELOPMENT</h1>
-        <p>Web development involves creating and maintaining websites or web applications, encompassing both front-end and back-end tasks. Front-end development focuses on the user interface using HTML, CSS, and JavaScript, while back-end development deals with server-side logic and database management. </p>
-        <span id="span"></span>
+          <div class="hero-image">
+            <div class="image-wrapper">
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+              <img src="profile.png" alt="Vasishta Mahi Tej">
+            </div>
+          </div>
+        </div>
       </div>
-     <div class="design">
-<i class='bx bx-brain'></i>
-<h1>ARTIFICIAL INTELLIGENCE & MACHINE LEARNING</h1>
-<p>
-AI/ML focuses on building intelligent systems that can learn, adapt, and make decisions. Artificial Intelligence involves simulating human-like intelligence in machines, while Machine Learning enables systems to learn from data and improve over time. Applications include natural language processing.
-</p>
-<span id="span1"></span>
-</div>
+    </section>
 
-<div class="app">
-<i class='bx bx-code-alt'></i>
-<h1>SOFTWARE DEVELOPMENT</h1>
-<p>
-Software development involves designing, building, testing, and maintaining software applications for desktop, mobile, or enterprise environments. It includes front-end development for user interfaces, back-end development for server logic and databases, and integration of tools and frameworks .
-</p>
-<span id="span2"></span>
-</div>
-    </div>
-
- <!-- contact-->
-  </section>
-  <section id="contact">
-      <div class="call">
-        <form onsubmit="sendEmail(); reset(); return false">
-          <h2>Contact</h2>
-          <label for="name"></label>
-          <input type="text" id="name" name="name" placeholder="Your name.." required>
-          <label for="email"></label>
-          <input type="email" id="email" name="email" placeholder="Your email.." required>
-          <label for="subject"></label>
-          <input type="text" id="subject" name="subject" placeholder="Subject.." required>
-          <label for="message"></label>
-          <textarea id="message" name="message" placeholder="Write something.." style="height:100px" required></textarea>
-          <button type="submit">Submit</button>
-        </form>
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">About Me</span></h2>
+        </div>
+        <div class="about-content">
+          <p>I am a motivated Information Technology student with strong expertise in full-stack development, machine learning, and generative AI, and a proven ability to turn ideas into impactful real-world applications. I have built advanced projects such as an AI-powered loan approval system achieving 81.6% accuracy and a smart health monitoring web application with real-time data visualization. Through internships with APSCHE, IIDT, and Blackbucks, I contributed to scalable web solutions, backend integration, and optimized AI prompt systems that improved workflow efficiency by 30%. I am passionate about problem-solving, writing clean and efficient code, and continuously learning emerging technologies to deliver meaningful digital solutions.</p>
+        </div>
       </div>
-  </section>
+    </section>
 
-    <footer class="footer">
-      <div class="footer-container">
+    <!-- Education Section -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">Education</span></h2>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <i class='bx bx-graduation'></i>
+            <h3>B.Tech in Information Technology</h3>
+            <p>Dhanekula Institute of Engineering and Technology</p>
+            <p>2022 - 2026 | CGPA: 8.3/10</p>
+          </div>
+          <div class="card">
+            <i class='bx bx-book-open'></i>
+            <h3>Intermediate Education</h3>
+            <p>AP Model College, Kanigiri</p>
+            <p>2020 - 2022 | 66%</p>
+          </div>
+          <div class="card">
+            <i class='bx bx-book'></i>
+            <h3>Secondary Education</h3>
+            <p>AP Model School, Kanigiri</p>
+            <p>2019 - 2020 | 98%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">Skills</span></h2>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <i class='bx bx-code-alt'></i>
+            <h3>Programming</h3>
+            <p>Java, Python, C, C++, Data Structures, OOP, Computer Networks</p>
+          </div>
+          <div class="card">
+            <i class='bx bx-window-alt'></i>
+            <h3>Web & Full-Stack</h3>
+            <p>HTML, CSS, JavaScript, React.js, Node.js, Express.js, MongoDB, MySQL, REST APIs</p>
+          </div>
+          <div class="card">
+            <i class='bx bx-brain'></i>
+            <h3>AI & Tools</h3>
+            <p>Machine Learning, OpenAI API, Streamlit, Git, GitHub, VS Code, Prompt Engineering</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">Projects</span></h2>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <i class='bx bx-analyse'></i>
+            <h3>AI-Powered Loan Approval Classifier</h3>
+            <p>Hybrid system using Python, Scikit-learn, OpenAI API, and Streamlit. Combines Random Forest model (81.6% accuracy) with ChatGPT for loan approval predictions and explanations.</p>
+            <a href="https://github.com/vasistadronadula/AI-Powered-Loan-Approval-Classifier" class="btn btn-secondary" target="_blank">
+              <i class='bx bxl-github'></i> View on GitHub
+            </a>
+          </div>
+          <div class="card">
+            <i class='bx bx-pulse'></i>
+            <h3>Smart Health Monitoring</h3>
+            <p>Full-stack web app ingesting real-time vitals from IoT data sources, storing in Firebase Firestore, with React dashboard featuring auth and live data visualization.</p>
+            <a href="https://github.com/vasistadronadula/Smart-Health-Monitoring" class="btn btn-secondary" target="_blank">
+              <i class='bx bxl-github'></i> View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2><span class="gradient-text">Experience</span></h2>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <i class='bx bx-server'></i>
+            <h3>Python Full Stack Developer Intern</h3>
+            <p>APSCHE, IIDT & Blackbucks (May 2024 – July 2024)</p>
+            <p>Developed responsive website using HTML, CSS, JavaScript, Express.js, and MongoDB. Worked on UI, backend APIs, and database integration.</p>
+          </div>
+          <div class="card">
+            <i class='bx bx-bot'></i>
+            <h3>ChatGPT & Generative AI Intern</h3>
+            <p>APSCHE, IIDT & Blackbucks (May 2025 – July 2025)</p>
+            <p>Created and refined prompt templates for generative AI workflows, improving accuracy and reducing template creation time by 30%.</p>
+          </div>
+          <div class="card">
+            <i class='bx bx-certification'></i>
+            <h3>Certifications</h3>
+            <p>Python Full Stack Development – IIDT<br>ChatGPT & Prompt Engineering – IIDT<br>Machine Learning – INFOSYS<br>Java Training – IIT Bombay</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
         <div class="footer-section">
           <h4>Contact</h4>
-          <p>Email: vasistadronadula@gmail.com</p>
-          <p>Phone: 8179238137</p>
+          <p>Email: <a href="mailto:vasistadronadula@gmail.com">vasistadronadula@gmail.com</a></p>
+          <p>Phone: <a href="tel:+918179238137">+91 81792 38137</a></p>
+          <p>Location: Vijayawada, Andhra Pradesh</p>
         </div>
         <div class="footer-section">
           <h4>Follow Me</h4>
-          <a href="https://x.com/vasishtatej">Twitter</a>
-          <a href="https://www.linkedin.com/in/vasishta-mahi-tej-140611290?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B8pro7iyuSjirQfKPUw5IlA%3D%3D">LinkedIn</a>
-          <a href="https://github.com/vasistadronadula">GitHub</a>
+          <a href="https://www.linkedin.com/in/vasishta-mahi-tej-140611290" target="_blank">LinkedIn</a>
+          <a href="https://github.com/vasistadronadula" target="_blank">GitHub</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2024 vasistadronadula. All rights reserved.</p>
+        <p>© 2026 Vasishta Mahi Tej. All rights reserved.</p>
       </div>
-    </footer>
-</body>
-<script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class='bx bx-up-arrow-alt'></i>
+  </button>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    menuToggle.addEventListener('click', () => mobileNav.classList.add('active'));
+    closeBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('active'));
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section-header, .about-content, .card, .contact-form')
+      .forEach(el => observer.observe(el));
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for reaching out! I will get back to you soon.');
+      e.target.reset();
+    });
+
+    // Safer smooth scroll for internal links (desktop + mobile)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        const yOffset = -80; // account for fixed navbar
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    });
   </script>
+</body>
 </html>
-
-
-
